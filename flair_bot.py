@@ -41,13 +41,10 @@ class FlairBot:
         user_agent='40kLore Auto Flair'
     )
 
-    # TARGET_SUB is the name of the subreddit without the leading /r/
-    TARGET_SUB = '40kLore'
-
-    # Turn on output to log file in current directory - log.txt
+    # Turn on output to log file in current directory - log.txt.
     LOGGING = True
 
-    # Class variable to hold the unread pms
+    # Class variable to hold the unread pms.
     pms = None
 
     def __init__(self):
@@ -68,19 +65,25 @@ class FlairBot:
             flair_id = str(pm.subject)
             author = str(pm.author)
             pm_body = str(pm.body)
-            flair_text = None
+
+            split_pm_body = pm_body.split("\n")
+            flair_text = split_pm_body[0]
+            target_subs = split_pm_body[1]
 
             if author.lower() in (user.lower() for user in self.BLACKLIST):
                 continue
 
             if flair_id in FLAIRS:
-                flair_text = pm_body
+                flair_text = split_pm_body[0]
 
-                if not pm_body:
+                if not flair_text:
                     flair_text = str(FLAIRS[flair_id])
 
-                subreddit = self.reddit.subreddit(self.TARGET_SUB)
-                subreddit.flair.set(author, flair_text, flair_id)
+                target_subreddits = target_subs.split(" ")
+
+                for target_subreddit in target_subreddits:
+                    self.reddit.subreddit(target_subreddit).flair.set(author, flair_text, flair_id)
+
                 pm.reply(self.get_message(author, flair_text, flair_id, "success"))
             else:
                 pm.reply(self.get_message(author, flair_text, flair_id, "failure"))
