@@ -44,6 +44,9 @@ class FlairBot:
     # Turn on output to log file in current directory - log.txt.
     LOGGING = True
 
+    # Allow users to set their own flair text or not.
+    ALLOW_CUSTOM_FLAIR_TEXT = False
+
     # Class variable to hold the unread pms.
     pms = None
 
@@ -76,7 +79,7 @@ class FlairBot:
             if flair_id in FLAIRS:
                 flair_text = split_pm_body[0]
 
-                if not flair_text:
+                if not self.ALLOW_CUSTOM_FLAIR_TEXT or not flair_text:
                     flair_text = str(FLAIRS[flair_id])
 
                 target_subreddits = target_subs.split(" ")
@@ -84,9 +87,9 @@ class FlairBot:
                 for target_subreddit in target_subreddits:
                     self.reddit.subreddit(target_subreddit).flair.set(author, flair_text, flair_id)
 
-                pm.reply(self.get_message(author, flair_text, flair_id, "success"))
+                pm.reply(self.get_message(author, flair_id, "success"))
             else:
-                pm.reply(self.get_message(author, flair_text, flair_id, "failure"))
+                pm.reply(self.get_message(author, flair_id, "failure"))
 
             if self.LOGGING:
                 self.log(author, flair_id, pm_body, flair_text)
@@ -124,13 +127,13 @@ class FlairBot:
 
         return thought_for_the_day[randint(0, 9)]
 
-    def get_success_message(self, author, flair_text, flair_id):
+    def get_success_message(self, author, flair_id):
         flair_name = FLAIRS[flair_id]
         message = (
-            "Greetings loyal imperial citizen, designation `"+ author +"`. Your request for flair "
+            "Greetings loyal imperial citizen, designation `" + author + "`. Your request for flair "
             "assignment has been considered by the Cult Mechanicus and you have been found worthy "
-            "(praise the Emperor). Your chosen flair icon (designation `" + flair_name + "`) with "
-            "flair text (designation `" + flair_text + "`) is now in effect.\n\n"
+            "(praise the Emperor). Your chosen flair icon (designation `" + flair_name + "`) is "
+            "now in effect.\n\n"
             "Your loyalty to the Imperium continues to be monitored and assessed. All "
             "transgressions will be reported to the Holy Inquisition.\n\n"
             "The Emperor protects."
@@ -142,7 +145,7 @@ class FlairBot:
         message = (
             "Greetings imperial citizen, designation `" + author + "`. Your request for flair "
             "assignment has been considered by the Cult Mechanicus and rejected. Your requested "
-            "flair icon (ID `" + flair_id + "`) is not found on the Mechanicum sanctioned "
+            "flair icon (designation `" + flair_id + "`) is not found on the Mechanicum sanctioned "
             "list of authorised flair icons. Your loyalty to the Imperium has now been brought "
             "into question and this transgression has been reported to the Holy Inquisition.\n\n"
             "In future, ensure that you do not alter your automatically generated flair request "
@@ -154,11 +157,11 @@ class FlairBot:
 
         return message
 
-    def get_message(self, author, flair_text, flair_id, message_type):
+    def get_message(self, author, flair_id, message_type):
         ref = "%016d" % randint(0, 9999999999999999)
 
         if message_type == 'success':
-            message = self.get_success_message(author, flair_text, flair_id)
+            message = self.get_success_message(author, flair_id)
         elif message_type == 'failure':
             message = self.get_failure_message(author, flair_id)
         else:
