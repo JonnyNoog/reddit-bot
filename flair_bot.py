@@ -79,13 +79,23 @@ class FlairBot:
             if flair_id in FLAIRS:
                 flair_text = split_pm_body[0]
 
+                # Extra categories beyond the one corresponding to the spritesheet
+                # name aren't required for actual display of flair, and can
+                # potentially mess up flair display. The extra categories are
+                # only relevant for the JS filter code running on the flair
+                # selection page.
+                flair_id_parts = flair_id.split(" ")
+                flair_position = flair_id_parts[0]
+                flair_sheet_name = flair_id_parts[1]
+
                 if not self.ALLOW_CUSTOM_FLAIR_TEXT or not flair_text:
                     flair_text = str(FLAIRS[flair_id])
 
                 target_subreddits = target_subs.split(" ")
 
                 for target_subreddit in target_subreddits:
-                    self.reddit.subreddit(target_subreddit).flair.set(author, flair_text, flair_id)
+                    self.reddit.subreddit(target_subreddit).flair.set(author, flair_text, \
+                    flair_position + " " + flair_sheet_name)
 
                 pm.reply(self.get_message(author, flair_id, "success"))
             else:
