@@ -200,7 +200,7 @@ class FlairBot:
     def log(self, author, flair_id, pm_body, flair_text):
         with open('log.txt', 'a') as logfile:
             time_now = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-            log_text = "Added: " + author + " - Flair ID: '" + flair_id + " Flair text: '" \
+            log_text = "Added: " + author + " - Flair ID: '" + flair_id + "' Flair text: '" \
             + str(flair_text) + "' PM body: '" + pm_body + \
             "' @ " + time_now + "\n"
             logfile.write(log_text)
