@@ -18,7 +18,7 @@ This script expects a file called `secrets.py` to be in the same directory, with
 
 Thanks to https://github.com/gavin19/reddit-flair-bot for the original code.
 
-##LICENSE
+## LICENSE
 
 The MIT License (MIT)
 
