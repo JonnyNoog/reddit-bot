@@ -6,6 +6,7 @@ from time import gmtime, strftime
 from datetime import datetime
 import math
 import praw
+
 try:
     from flair_list import FLAIRS
 except ImportError as ex:
@@ -70,15 +71,19 @@ class FlairBot:
             pm_body = str(pm.body)
 
             split_pm_body = pm_body.split("\n")
-            flair_text = split_pm_body[0]
-            target_subs = split_pm_body[1]
+            flair_text = ""
+            target_subs = ""
+
+            if len(split_pm_body) == 1:
+                target_subs = split_pm_body[0]
+            else:
+                flair_text = split_pm_body[0]
+                target_subs = split_pm_body[1]
 
             if author.lower() in (user.lower() for user in self.BLACKLIST):
                 continue
 
             if flair_id in FLAIRS:
-                flair_text = split_pm_body[0]
-
                 # Extra categories beyond the one corresponding to the spritesheet
                 # name aren't required for actual display of flair, and can
                 # potentially mess up flair display. The extra categories are
@@ -94,10 +99,13 @@ class FlairBot:
                 target_subreddits = target_subs.split(" ")
 
                 for target_subreddit in target_subreddits:
-                    self.reddit.subreddit(target_subreddit).flair.set(author, flair_text, \
-                    flair_position + " " + flair_sheet_name)
+                    try:
+                        self.reddit.subreddit(target_subreddit).flair.set(author, flair_text, \
+                        flair_position + " " + flair_sheet_name)
+                        pm.reply(self.get_message(author, flair_id, "success"))
+                    except:
+                        pm.mark_read()
 
-                pm.reply(self.get_message(author, flair_id, "success"))
             else:
                 pm.reply(self.get_message(author, flair_id, "failure"))
 
