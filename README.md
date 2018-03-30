@@ -1,13 +1,16 @@
-reddit-flair-bot for r/40kLore
+Moderator bot for r/40kLore
 ================
 
-Simple Python script for handling incoming PMs with a view to assigning flair based on their content.
+Python scripts for handling:
+
+* incoming PMs with a view to assigning flair based on their content.
+* Changing the type of posts allowed on the sub-reddit (any, link, self).
 
 Requires Python 2.x or newer and PRAW 4.x to run.
 
-This is the current script used by https://reddit.com/r/40kLore.
+These scripts are used by https://reddit.com/r/40kLore.
 
-This script expects a file called `secrets.py` to be in the same directory, with this structure:
+These scripts expect a file called `secrets.py` to be in the same directory, with this structure:
 
     SECRETS = {
         'client_id': 'client_id_goes_here',

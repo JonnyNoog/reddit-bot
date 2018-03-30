@@ -1,4 +1,6 @@
 __pycache__/
 secrets.py
 *.pyc
-log.txt
+flair_bot_log.txt
+link_type_bot_log.txt
+link_type_bot_submission_id.txt
