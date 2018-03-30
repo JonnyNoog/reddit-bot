@@ -6,7 +6,7 @@ Python scripts for handling:
 * incoming PMs with a view to assigning flair based on their content.
 * Changing the type of posts allowed on the sub-reddit (any, link, self).
 
-Requires Python 2.x or newer and PRAW 4.x to run.
+Requires Python 2.x or newer and PRAW 4.x or newer.
 
 These scripts are used by https://reddit.com/r/40kLore.
 
