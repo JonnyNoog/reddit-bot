@@ -496,6 +496,7 @@ FLAIRS = {
     "1-6 Tau Xenos": "Vash'ya",
     "1-7 Tau Xenos": "Vior'la",
     "1-8 Tau Xenos": "Farsight Enclaves",
+    "1-9 Tau Xenos": "Kroot",
     "0-0 Tyranids Xenos": "Tyranids",
     "0-1 Tyranids Xenos": "Tyranids"
 }

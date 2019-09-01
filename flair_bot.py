@@ -42,7 +42,7 @@ class FlairBot:
 
     def fetch_pms(self):
         # Get a listing of all unread PMs sent to the bot user account.
-        self.pms = self.reddit.inbox.messages.unread(limit=None)
+        self.pms = self.reddit.inbox.unread(limit=None)
 
         if self.pms is not None:
             self.process_pms()
