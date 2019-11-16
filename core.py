@@ -40,7 +40,7 @@ def imperial_date_now():
 
     year = current_date_time.strftime("%y").zfill(3)
 
-    return "0 " + "%03d" % year_fraction + " " + year + " M3"
+    return "0 " + "%03d" % year_fraction + " " + year + ".M3"
 
 def build_message(author, subject, message):
     ref = "%016d" % random.randint(0, 9999999999999999)
