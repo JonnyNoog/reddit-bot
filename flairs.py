@@ -18,6 +18,7 @@ FLAIRS = {
     "1-5 AdeptusTerra ImperiumOfMan": "Rogue Traders",
     "1-6 AdeptusTerra ImperiumOfMan": "Thunder Warriors",
     "0-0 AdeptusAstartes AdeptusTerra ImperiumOfMan": "Adeptus Astartes",
+    "0-1 AdeptusAstartes AdeptusTerra ImperiumOfMan": "Dreadnought",
     "0-0 DarkAngels AdeptusAstartes ImperiumOfMan": "Dark Angels",
     "0-1 DarkAngels AdeptusAstartes ImperiumOfMan": "Dark Angels",
     "0-2 DarkAngels AdeptusAstartes ImperiumOfMan": "Deathwing",
