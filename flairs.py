@@ -1,6 +1,6 @@
 # Don't include the NonUserFlair in this list!
 FLAIRS = {
-   "0-0 AdeptusTerra ImperiumOfMan": "Imperium of Man",
+    "0-0 AdeptusTerra ImperiumOfMan": "Imperium of Man",
     "0-1 AdeptusTerra ImperiumOfMan": "Imperium of Man",
     "0-2 AdeptusTerra ImperiumOfMan": "Imperium of Man",
     "0-3 AdeptusTerra ImperiumOfMan": "Adeptus Terra",
@@ -396,6 +396,13 @@ FLAIRS = {
     "2-9 ChaosLegions Chaos": "Alpha Legion",
     "3-0 ChaosLegions Chaos": "Alpha Legion",
     "3-1 ChaosLegions Chaos": "Alpha Legion",
+    "0-0 ChaosWarbands Chaos": "Adharon's Reavers",
+    "0-1 ChaosWarbands Chaos": "Angels of Ecstasy",
+    "0-2 ChaosWarbands Chaos": "Angron's Chosen",
+    "0-3 ChaosWarbands Chaos": "Apocalypse Company",
+    "0-4 ChaosWarbands Chaos": "Apostles of Contagion",
+    "0-5 ChaosWarbands Chaos": "Apostles of Minth Ras",
+    "0-6 ChaosWarbands Chaos": "Dark Mechanicus",
     "0-0 TraitorTitanLegions Chaos": "House Devine",
     "0-1 TraitorTitanLegions Chaos": "Legio Excrutiatus (Hell Dogs)",
     "0-2 TraitorTitanLegions Chaos": "Legio fureans (Tiger Eyes)",
