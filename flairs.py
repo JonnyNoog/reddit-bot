@@ -140,6 +140,7 @@ FLAIRS = {
     "0-1 Salamanders AdeptusAstartes ImperiumOfMan": "Salamanders",
     "0-2 Salamanders AdeptusAstartes ImperiumOfMan": "Black Dragons",
     "0-3 Salamanders AdeptusAstartes ImperiumOfMan": "Storm Giants",
+    "0-4 Salamanders AdeptusAstartes ImperiumOfMan": "Black Dragons",
     "0-0 RavenGuard AdeptusAstartes ImperiumOfMan": "Raven Guard",
     "0-1 RavenGuard AdeptusAstartes ImperiumOfMan": "Raven Guard",
     "0-2 RavenGuard AdeptusAstartes ImperiumOfMan": "Black Guard",
