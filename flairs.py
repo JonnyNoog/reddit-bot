@@ -277,6 +277,7 @@ FLAIRS = {
     "0-3 RenegadeChapters AdeptusAstartes ImperiumOfMan": "Relictors",
     "0-4 RenegadeChapters AdeptusAstartes ImperiumOfMan": "Soul Drinkers",
     "0-5 RenegadeChapters AdeptusAstartes ImperiumOfMan": "Tiger Claws",
+    "0-6 RenegadeChapters AdeptusAstartes ImperiumOfMan": "Ashen Claws",
     "0-0 AstraMilitarum ImperiumOfMan AdeptusTerra": "Astra Militarum",
     "0-1 AstraMilitarum ImperiumOfMan": "1st Kronus Regiment",
     "0-2 AstraMilitarum ImperiumOfMan": "5th Arcadian Regiment",
